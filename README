@@ -1,0 +1,7 @@
+ical-merger is a project which provides to aggregate multiple ical feeds into one.
+
+Dependencies
+gem install icalender
+gem install rspec # if you want to run the tests
+
+It is currently WIP but if you look at the spec file you'll get an idea of how to use it
