@@ -1,4 +1,4 @@
-require 'ical_merger'
+require 'lib/ical_merger'
 
 # THESE TESTS DON'T CURRENTLY WORK - THEY WILL BE PROVIDED SHORTLY
 describe ICalMerger do

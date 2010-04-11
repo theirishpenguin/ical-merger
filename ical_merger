@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'lib/ical_merger'
+
+ical_urls = ['An ical URL', 'Another ical URL']
+ical_aggr = ICalMerger.new(ical_urls)
+ical_aggr.write_combined_events_to_file

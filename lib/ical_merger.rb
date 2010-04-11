@@ -36,12 +36,7 @@ class ICalMerger
       @combined.events += ical_calendar.events
     end
 
-    # TODO: Reject start/end dates better - so that, for example,
-    # * Multiday conferences are displayed midway through
-    # * All day events are handled correctly
-    # * Events with a start date but no end date are handled correctly
-    # Add rspecs for the above
-    @combined.events.reject! { |event| event.dtstart < DateTime.now }
+    @combined.events.reject! { |event| event.dtend < DateTime.now }
     @combined.events = @combined.events.sort_by { |event| event.dtstart }
 
     @combined
@@ -53,14 +48,23 @@ class ICalMerger
     combined_calendar.events.each do |event|
       output << "#{event.dtstart.strftime("%B %d, %Y %I:%M %p")}:\t"
       output << "#{event.summary}\n"
+      output << "#{event.location}\n"
+      output << "#{event.description}\n"
     end
 
     output
   end
 
+
+  def write_combined_events_to_file
+    File.open("combined.ics", "w+") {|f| f.write(combined_calendar.to_ical)}
+  end 
+  
+  
   private
 
   def handle_error(error)
     # Implement this if desired...
   end
+
 end
