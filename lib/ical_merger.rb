@@ -2,6 +2,8 @@ require 'rubygems'
 require 'icalendar'
 require 'date'
 require 'open-uri'
+require 'config'
+
 
 class ICalMerger
   include Icalendar
@@ -42,6 +44,7 @@ class ICalMerger
     @combined
   end
   
+  
   def to_s
     output = ''
 
@@ -56,13 +59,14 @@ class ICalMerger
   end
 
 
-  def write_combined_events_to_file
-    File.open("combined.ics", "w+") {|f| f.write(combined_calendar.to_ical)}
-  end 
+  def write_combined_events_to_file(filepath)
+    File.open(filepath, "w+") {|f| f.write(combined_calendar.to_ical)}
+  end
   
   
   private
 
+  
   def handle_error(error)
     # Implement this if desired...
   end

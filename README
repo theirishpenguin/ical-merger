@@ -1,7 +1,21 @@
 ical-merger is a project which provides to aggregate multiple ical feeds into one.
 
+
 Dependencies
+------------
 gem install icalender
 gem install rspec # if you want to run the tests
 
-It is currently WIP but if you look at the spec file you'll get an idea of how to use it
+
+Usage
+-----
+In config.rb
+  - Set the @@combined_ics_filepath to the location you wish to write the combined .ics file
+  - Set the @@ical_urls to the point at the ical URLs (or local files) you wish to combine
+ 
+Alternatively, you can use the ICalMerger class directly in Ruby code - see the RSpec specs for examples
+
+Enjoy! :-)
+
+Copyright (c) 2010 [Veronica Kelly], released under the MIT license
+
